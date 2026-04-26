@@ -87,7 +87,7 @@ router.post('/email', auth, async (req, res) => {
         try {
             // Get both HTML and text versions
             const [htmlResponse, textResponse] = await Promise.all([
-                fetch(`${process.env.ML_SERVICE_URL || 'http://127.0.0.1:5000'}/report/html', {
+                fetch(`${process.env.ML_SERVICE_URL || 'http://127.0.0.1:5000'}/report/html`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
@@ -96,7 +96,7 @@ router.post('/email', auth, async (req, res) => {
                         analyses: analyses
                     })
                 }),
-                fetch(`${process.env.ML_SERVICE_URL || 'http://127.0.0.1:5000'}/report/text', {
+                fetch(`${process.env.ML_SERVICE_URL || 'http://127.0.0.1:5000'}/report/text`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
@@ -176,7 +176,7 @@ router.post('/email/batch', auth, async (req, res) => {
         
         // Generate report via Python ML service
         try {
-            const htmlResponse = await fetch(`${process.env.ML_SERVICE_URL || 'http://127.0.0.1:5000'}/report/html', {
+            const htmlResponse = await fetch(`${process.env.ML_SERVICE_URL || 'http://127.0.0.1:5000'}/report/html`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({

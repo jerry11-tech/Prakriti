@@ -10,7 +10,7 @@ router.post('/', auth, async (req, res) => {
         // Call Python ML Service
         let mlResult;
         try {
-            const mlResponse = await fetch(`${process.env.ML_SERVICE_URL || 'http://127.0.0.1:5000'}/predict', {
+            const mlResponse = await fetch(`${process.env.ML_SERVICE_URL || 'http://127.0.0.1:5000'}/predict`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ faceShape, answers })

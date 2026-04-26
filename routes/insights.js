@@ -19,7 +19,7 @@ router.get('/insights', auth, async (req, res) => {
         
         // Call Python ML service for insights
         try {
-            const insightsResponse = await fetch(`${process.env.ML_SERVICE_URL || 'http://127.0.0.1:5000'}/insights', {
+            const insightsResponse = await fetch(`${process.env.ML_SERVICE_URL || 'http://127.0.0.1:5000'}/insights`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
@@ -78,7 +78,7 @@ router.get('/insights/report', auth, async (req, res) => {
         
         // Call Python ML service for report
         try {
-            const reportResponse = await fetch(`${process.env.ML_SERVICE_URL || 'http://127.0.0.1:5000'}/insights/report', {
+            const reportResponse = await fetch(`${process.env.ML_SERVICE_URL || 'http://127.0.0.1:5000'}/insights/report`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
