@@ -1,0 +1,13 @@
+{
+  "version": "20260426T070353Z",
+  "saved_at": "2026-04-26T07:03:53.571104Z",
+  "filename": "C:\\Users\\dhira\\Downloads\\prakriti-ai-ready-deploy\\ml_service\\models\\prakriti_model_20260426T070353Z.pkl",
+  "metadata": {
+    "training_samples": 500,
+    "accuracy": 0.76,
+    "precision": 0.5776,
+    "recall": 0.76,
+    "f1_score": 0.6563636363636364,
+    "model_type": "SimpleNN"
+  }
+}

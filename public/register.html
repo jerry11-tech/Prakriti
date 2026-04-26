@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PrakritiAI - Register</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .auth-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            position: relative;
+        }
+        .auth-card {
+            background: rgba(15, 23, 42, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 3rem;
+            border-radius: 20px;
+            width: 100%;
+            max-width: 400px;
+            z-index: 10;
+        }
+        .auth-card h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 1rem;
+            border-radius: 10px;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            font-size: 1rem;
+            outline: none;
+            transition: all 0.3s;
+        }
+        .form-group input:focus {
+            border-color: #7c3aed;
+            box-shadow: 0 0 10px rgba(124, 58, 237, 0.3);
+        }
+        .btn-auth {
+            width: 100%;
+            padding: 1rem;
+            border-radius: 10px;
+            background: linear-gradient(90deg, #7c3aed, #9d5ff5);
+            border: none;
+            color: white;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .btn-auth:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(124, 58, 237, 0.4);
+        }
+        .auth-links {
+            margin-top: 1.5rem;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #94a3b8;
+        }
+        .auth-links a {
+            color: #c4b5fd;
+            text-decoration: none;
+        }
+        .auth-links a:hover {
+            text-decoration: underline;
+        }
+        #error-msg {
+            color: #ef4444;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            text-align: center;
+            display: none;
+        }
+        #success-msg {
+            color: #10b981;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            text-align: center;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="auth-container">
+    <div class="hero-bg-orb orb1" style="top:20%; left:30%;"></div>
+    <div class="hero-bg-orb orb3" style="bottom:20%; right:30%;"></div>
+
+    <div class="auth-card">
+        <div class="nav-logo" style="justify-content:center; margin-bottom: 2rem;">
+            <div class="logo-gem">P</div>
+            <div class="logo-name">Prakriti<span>AI</span></div>
+        </div>
+        
+        <h2>Create Account</h2>
+        <div id="error-msg"></div>
+        <div id="success-msg"></div>
+        <form id="register-form">
+            <div class="form-group">
+                <label>Full Name</label>
+                <input type="text" id="name" required>
+            </div>
+            <div class="form-group">
+                <label>Email Address</label>
+                <input type="email" id="email" required>
+            </div>
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" id="password" required>
+            </div>
+            <button type="submit" class="btn-auth">Register &rarr;</button>
+        </form>
+        <div class="auth-links">
+            Already have an account? <a href="login.html">Sign In</a>
+        </div>
+    </div>
+</div>
+
+<script>
+const API_BASE_URL = window.location.port === '3000' ? '' : (window.__PRAKRITI_API_URL || 'http://localhost:3000');
+
+document.getElementById('register-form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value.trim().toLowerCase();
+    const password = document.getElementById('password').value;
+    const errObj = document.getElementById('error-msg');
+    const succesObj = document.getElementById('success-msg');
+    
+    errObj.style.display = 'none';
+    succesObj.style.display = 'none';
+
+    try {
+        const res = await fetch(`${API_BASE_URL}/api/auth/register`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ name, email, password })
+        });
+        const data = await res.json();
+        
+        if (res.ok) {
+            succesObj.textContent = 'Registration successful! Redirecting to login...';
+            succesObj.style.display = 'block';
+            setTimeout(() => {
+                window.location.href = 'login.html';
+            }, 2000);
+        } else {
+            errObj.textContent = data.error;
+            errObj.style.display = 'block';
+        }
+    } catch(err) {
+        errObj.textContent = 'Network Error. Please try again.';
+        errObj.style.display = 'block';
+    }
+});
+</script>
+</body>
+</html>

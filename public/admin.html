@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PrakritiAI - Admin Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .admin-container {
+            padding: 100px 2rem 2rem 2rem;
+            max-width: 1200px; margin: 0 auto;
+        }
+        .stats-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;
+        }
+        .stat-card {
+            background: rgba(15, 23, 42, 0.7); border: 1px solid rgba(255,255,255,0.1); border-radius: 15px; padding: 1.5rem; text-align: center;
+        }
+        .stat-num { font-size: 2.5rem; font-weight: bold; background: linear-gradient(90deg, #7c3aed, #9d5ff5); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        table { width: 100%; border-collapse: collapse; background: rgba(15, 23, 42, 0.5); border-radius: 10px; overflow: hidden; margin-bottom: 2rem; }
+        th, td { padding: 1rem; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        th { background: rgba(0,0,0,0.3); color: #94a3b8; }
+        .section-title { margin-bottom: 1rem; color: #c4b5fd; }
+        .btn-logout { background: transparent; border: 1px solid #ef4444; color: #ef4444; padding: 0.5rem 1rem; border-radius: 8px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-logo">
+            <div class="logo-gem">P</div>
+            <div class="logo-name">Prakriti<span>AI</span> <span>ADMIN</span></div>
+        </div>
+        <button class="btn-logout" id="logout-btn">Logout</button>
+    </nav>
+
+    <div class="admin-container">
+        <h2 class="section-title">Overview Stats</h2>
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-num" id="s-users">0</div>
+                <div style="color:#94a3b8">Total Users</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-num" id="s-analyses">0</div>
+                <div style="color:#94a3b8">Total Analyses</div>
+            </div>
+        </div>
+
+        <h2 class="section-title">All Users</h2>
+        <table>
+            <thead><tr><th>Name</th><th>Email</th><th>Role</th><th>Joined</th></tr></thead>
+            <tbody id="users-tbody"></tbody>
+        </table>
+
+        <h2 class="section-title">Recent Analyses logs</h2>
+        <table>
+            <thead><tr><th>User Info</th><th>Predicted Prakriti</th><th>Face Shape</th><th>Date</th></tr></thead>
+            <tbody id="logs-tbody"></tbody>
+        </table>
+    </div>
+
+<script>
+    const API_BASE_URL = window.location.port === '3000' ? '' : (window.__PRAKRITI_API_URL || 'http://localhost:3000');
+    const token = localStorage.getItem('token');
+    const role = localStorage.getItem('role');
+    if(!token || role !== 'admin') {
+        window.location.href = 'login.html';
+    }
+
+    document.getElementById('logout-btn').addEventListener('click', () => {
+        localStorage.clear();
+        window.location.href = 'login.html';
+    });
+
+    async function loadAdminData() {
+        try {
+            const opts = { headers: { 'Authorization': `Bearer ${token}` } };
+            
+            // Stats
+            const statsRes = await fetch(`${API_BASE_URL}/api/admin/stats`, opts);
+            const stats = await statsRes.json();
+            document.getElementById('s-users').textContent = stats.totalUsers || 0;
+            document.getElementById('s-analyses').textContent = stats.totalAnalyses || 0;
+
+            // Users
+            const usersRes = await fetch(`${API_BASE_URL}/api/admin/users`, opts);
+            const users = await usersRes.json();
+            document.getElementById('users-tbody').innerHTML = users.map(u => `
+                <tr><td>${u.name}</td><td>${u.email}</td><td>${u.role}</td><td>${new Date(u.createdAt).toLocaleDateString()}</td></tr>
+            `).join('');
+
+            // Logs
+            const logsRes = await fetch(`${API_BASE_URL}/api/admin/analyses`, opts);
+            const logs = await logsRes.json();
+            document.getElementById('logs-tbody').innerHTML = logs.map(l => `
+                <tr>
+                    <td>${l.userId ? l.userId.name : 'Unknown'}</td>
+                    <td style="color:#5eead4">${l.prakritiResult} (${l.confidence}%)</td>
+                    <td>${l.faceShape}</td>
+                    <td>${new Date(l.timestamp).toLocaleString()}</td>
+                </tr>
+            `).join('');
+        } catch(e) {
+            console.error(e);
+        }
+    }
+    loadAdminData();
+</script>
+</body>
+</html>

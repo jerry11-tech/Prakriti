@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PrakritiAI — Smart Face & Prakriti Analysis System</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">
+    <div class="logo-gem">P</div>
+    <div class="logo-name">Prakriti<span>AI</span></div>
+  </div>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#features">Features</a>
+    <a href="#how">How It Works</a>
+    <a href="#demo">Demo</a>
+    <a href="#tech">Tech Stack</a>
+    <a href="login.html" id="nav-login" style="color: #c4b5fd; font-weight: bold;">Login</a>
+  </div>
+  <button class="btn-nav" onclick="document.getElementById('demo').scrollIntoView({behavior:'smooth'})">Try Demo &rarr;</button>
+</nav>
+
+<div class="hero" id="top">
+  <div class="hero-bg-orb orb1"></div>
+  <div class="hero-bg-orb orb2"></div>
+  <div class="hero-bg-orb orb3"></div>
+  <div style="position:relative;z-index:2">
+    <div class="hero-badge"><div class="badge-dot"></div>AI-Powered Ayurvedic Intelligence</div>
+    <h1>Know Your Face.<br><span class="h1-gradient">Know Your Prakriti.</span></h1>
+    <p class="hero-sub">An intelligent system fusing computer vision and lifestyle ML to reveal your Ayurvedic constitution and personalized wellness path — in seconds.</p>
+    <div class="hero-btns">
+      <button class="btn-primary" onclick="document.getElementById('demo').scrollIntoView({behavior:'smooth'})">Analyze My Prakriti &rarr;</button>
+      <button class="btn-teal" onclick="document.getElementById('how').scrollIntoView({behavior:'smooth'})">See How It Works</button>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><div class="stat-num">95%</div><div class="stat-label">Prakriti Accuracy</div></div>
+      <div class="stat-divider"></div>
+      <div class="stat"><div class="stat-num">3</div><div class="stat-label">Doshas Analyzed</div></div>
+      <div class="stat-divider"></div>
+      <div class="stat"><div class="stat-num">Hybrid</div><div class="stat-label">CV + ML Fusion</div></div>
+      <div class="stat-divider"></div>
+      <div class="stat"><div class="stat-num">50+</div><div class="stat-label">Health Insights</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="scroll-indicator">
+  <div>Scroll to explore</div>
+  <div class="scroll-arrow">&#8964;</div>
+</div>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-grid">
+    <div class="animate-ready" data-anim="slideLeft">
+      <div class="sec-tag">About the Project</div>
+      <div class="sec-title">Where Ancient Wisdom<br>Meets Modern AI</div>
+      <p class="sec-sub">This system bridges 5,000 years of Ayurvedic science with state-of-the-art computer vision and machine learning. By analyzing your facial structure and lifestyle patterns, it classifies your unique Prakriti with clinical precision.</p>
+      <p class="about-quote">A hybrid approach combining CV-based facial analysis + questionnaire ML for superior accuracy that neither method achieves alone.</p>
+    </div>
+    <div class="about-visual animate-ready" data-anim="slideRight">
+      <div style="position:relative;display:inline-block">
+        <div class="face-orb">&#127753;<div class="face-orb-ring"></div></div>
+      </div>
+      <div class="about-visual-title">Constitutional Analysis</div>
+      <div class="about-visual-sub">Holistic &bull; Intelligent &bull; Personalized</div>
+      <div class="about-pills">
+        <div class="pill pill-purple">Face Shape</div>
+        <div class="pill pill-teal">Dark Circles</div>
+        <div class="pill pill-gold">Puffy Face</div>
+        <div class="pill pill-coral">Skin Texture</div>
+        <div class="pill pill-purple">Vata Dosha</div>
+        <div class="pill pill-teal">Pitta Dosha</div>
+        <div class="pill pill-gold">Kapha Dosha</div>
+        <div class="pill pill-coral">Diet Plan</div>
+        <div class="pill pill-purple">Lifestyle</div>
+        <div class="pill pill-teal">Herbs</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features" id="features">
+  <div class="centered">
+    <div class="sec-tag animate-ready" data-anim="fadeUp">Core Features</div>
+    <div class="sec-title animate-ready" data-anim="fadeUp">Everything You Need to<br>Understand Your Constitution</div>
+  </div>
+  <div class="feat-grid">
+    <div class="feat-card animate-ready" data-anim="scaleIn" style="animation-delay:0.05s">
+      <div class="feat-icon icon-purple">&#128065;</div>
+      <h3>Face Shape Detection</h3>
+      <p>Computer vision with landmark detection classifies oval, round, square, heart, and oblong face shapes with high precision.</p>
+    </div>
+    <div class="feat-card animate-ready" data-anim="scaleIn" style="animation-delay:0.1s">
+      <div class="feat-icon icon-teal">&#127807;</div>
+      <h3>Prakriti Classification</h3>
+      <p>ML models trained on Ayurvedic parameters classify Vata, Pitta, or Kapha dominance from your lifestyle questionnaire.</p>
+    </div>
+    <div class="feat-card animate-ready" data-anim="scaleIn" style="animation-delay:0.15s">
+      <div class="feat-icon icon-gold">&#10024;</div>
+      <h3>Condition Analysis</h3>
+      <p>Detects dark circles, facial puffiness, and skin texture variations as visible Ayurvedic health indicators.</p>
+    </div>
+    <div class="feat-card animate-ready" data-anim="scaleIn" style="animation-delay:0.2s">
+      <div class="feat-icon icon-coral">&#127849;</div>
+      <h3>Ayurvedic Diet Plan</h3>
+      <p>Personalized food recommendations for your dosha — what to eat, what to avoid, and seasonal dietary guidelines.</p>
+    </div>
+    <div class="feat-card animate-ready" data-anim="scaleIn" style="animation-delay:0.25s">
+      <div class="feat-icon icon-pink">&#129496;</div>
+      <h3>Lifestyle Insights</h3>
+      <p>Holistic routines covering sleep, exercise types, herbs, and daily rituals perfectly aligned to your constitution.</p>
+    </div>
+    <div class="feat-card featured animate-ready" data-anim="scaleIn" style="animation-delay:0.3s">
+      <div class="feat-badge">&#10024; Signature Feature</div>
+      <div class="feat-icon icon-featured">&#8734;</div>
+      <h3>Hybrid AI Engine</h3>
+      <p>Unique fusion of real-time computer vision + questionnaire ML — far more accurate than either approach used alone.</p>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how" id="how">
+  <div class="centered">
+    <div class="sec-tag animate-ready" data-anim="fadeUp">How It Works</div>
+    <div class="sec-title animate-ready" data-anim="fadeUp">Four Steps to Your<br>Wellness Blueprint</div>
+  </div>
+  <div class="steps-row">
+    <div class="steps-line"></div>
+    <div class="step animate-ready" data-anim="fadeUp" style="animation-delay:0.05s">
+      <div class="step-circle step-c1">01</div>
+      <h4>Upload or Capture</h4>
+      <p>Upload a frontal photo or use your live camera for real-time facial capture.</p>
+    </div>
+    <div class="step animate-ready" data-anim="fadeUp" style="animation-delay:0.15s">
+      <div class="step-circle step-c2">02</div>
+      <h4>Answer Questionnaire</h4>
+      <p>Complete 12 lifestyle questions on sleep, digestion, energy, and temperament.</p>
+    </div>
+    <div class="step animate-ready" data-anim="fadeUp" style="animation-delay:0.25s">
+      <div class="step-circle step-c3">03</div>
+      <h4>AI Analyzes</h4>
+      <p>Hybrid model processes facial landmarks and lifestyle data simultaneously.</p>
+    </div>
+    <div class="step animate-ready" data-anim="fadeUp" style="animation-delay:0.35s">
+      <div class="step-circle step-c4">04</div>
+      <h4>Receive Insights</h4>
+      <p>Get your full Prakriti report with personalized Ayurvedic recommendations.</p>
+    </div>
+  </div>
+</section>
+
+<!-- DEMO -->
+<section class="demo" id="demo">
+  <div class="centered">
+    <div class="sec-tag animate-ready" data-anim="fadeUp">Live Demo</div>
+    <div class="sec-title animate-ready" data-anim="fadeUp">See It In Action</div>
+    <p class="sec-sub centered animate-ready" data-anim="fadeUp">Upload a photo, answer a few lifestyle questions, and receive your complete personalized Ayurvedic report.</p>
+  </div>
+  <div class="demo-grid">
+    <div class="demo-panel animate-ready" data-anim="slideLeft">
+      <div class="demo-section-title">Step 1 &mdash; Facial Input</div>
+      <div class="upload-zone" id="camera-zone" style="overflow: hidden;">
+        <video id="webcam" autoplay playsinline style="display: none; width: 100%; margin-bottom: 10px; border-radius: 8px;"></video>
+        <canvas id="snapshot" style="display: none; width: 100%; margin-bottom: 10px; border-radius: 8px;"></canvas>
+        <img id="previewImage" style="display: none; width: 100%; margin-bottom: 10px; border-radius: 8px;" />
+        <div id="upload-placeholder">
+          <div class="upload-icon-box">&#128247;</div>
+          <p>Drag & drop your photo or choose an option below</p>
+        </div>
+        <div class="upload-btns">
+          <input type="file" id="file-input" accept="image/*" style="display: none;">
+          <button class="btn-purple-sm" id="btn-upload">&#128228; Upload</button>
+          <button class="btn-outline-sm" id="btn-camera">&#128247; Camera</button>
+        </div>
+        <div class="upload-btns" style="margin-top: 10px;">
+          <button class="btn-outline-sm" id="btn-capture" style="display: none; width: 100%;">&#128247; Capture Snapshot</button>
+        </div>
+      </div>
+      <div class="divider"></div>
+      <div class="demo-section-title">Step 2 &mdash; Questionnaire</div>
+      
+      <!-- Question 1: Body Frame -->
+      <div class="q-card" data-question="bodyFrame">
+        <p>1. How would you describe your body frame?</p>
+        <div class="q-opts">
+          <div class="q-opt">Slim &amp; light</div>
+          <div class="q-opt">Medium build</div>
+          <div class="q-opt">Heavy &amp; large</div>
+        </div>
+      </div>
+
+      <!-- Question 2: Skin Texture -->
+      <div class="q-card" data-question="skinTexture">
+        <p>2. Your skin texture is usually...</p>
+        <div class="q-opts">
+          <div class="q-opt">Dry &amp; rough</div>
+          <div class="q-opt">Oily &amp; sensitive</div>
+          <div class="q-opt">Smooth &amp; thick</div>
+        </div>
+      </div>
+
+      <!-- Question 3: Sleep Pattern -->
+      <div class="q-card" data-question="sleepPattern">
+        <p>3. How is your sleep pattern?</p>
+        <div class="q-opts">
+          <div class="q-opt">Light &amp; interrupted</div>
+          <div class="q-opt">Sound &amp; moderate</div>
+          <div class="q-opt">Deep &amp; prolonged</div>
+        </div>
+      </div>
+
+      <!-- Question 4: Digestion -->
+      <div class="q-card" data-question="digestion">
+        <p>4. How would you describe your digestion?</p>
+        <div class="q-opts">
+          <div class="q-opt">Irregular / Gas</div>
+          <div class="q-opt">Strong / Quick</div>
+          <div class="q-opt">Slow / Heavy</div>
+        </div>
+      </div>
+
+      <!-- Question 5: Appetite -->
+      <div class="q-card" data-question="appetite">
+        <p>5. How is your appetite?</p>
+        <div class="q-opts">
+          <div class="q-opt">Variable / Low</div>
+          <div class="q-opt">Intense / Sharp</div>
+          <div class="q-opt">Steady / Low</div>
+        </div>
+      </div>
+
+      <!-- Question 6: Temperament -->
+      <div class="q-card" data-question="temperament">
+        <p>6. How would you describe your temperament?</p>
+        <div class="q-opts">
+          <div class="q-opt">Anxious / Creative</div>
+          <div class="q-opt">Irritable / Focused</div>
+          <div class="q-opt">Calm / Steady</div>
+        </div>
+      </div>
+
+      <!-- Question 7: Energy levels -->
+      <div class="q-card" data-question="energy">
+        <p>7. How is your energy throughout the day?</p>
+        <div class="q-opts">
+          <div class="q-opt">Fluctuating</div>
+          <div class="q-opt">High / Intense</div>
+          <div class="q-opt">Low / Steady</div>
+        </div>
+      </div>
+
+      <!-- Question 8: Memory -->
+      <div class="q-card" data-question="memory">
+        <p>8. How is your memory?</p>
+        <div class="q-opts">
+          <div class="q-opt">Quick learn, quick forget</div>
+          <div class="q-opt">Sharp &amp; accurate</div>
+          <div class="q-opt">Slow learn, never forget</div>
+        </div>
+      </div>
+
+      <!-- Question 9: Speech -->
+      <div class="q-card" data-question="speech">
+        <p>9. How do you usually speak?</p>
+        <div class="q-opts">
+          <div class="q-opt">Fast &amp; talkative</div>
+          <div class="q-opt">Clear &amp; sharp</div>
+          <div class="q-opt">Slow &amp; steady</div>
+        </div>
+      </div>
+
+      <!-- Question 10: Bowel Movements -->
+      <div class="q-card" data-question="bowels">
+        <p>10. Frequency of bowel movements?</p>
+        <div class="q-opts">
+          <div class="q-opt">Irregular / Dry</div>
+          <div class="q-opt">Regular / Loose</div>
+          <div class="q-opt">Regular / Sluggish</div>
+        </div>
+      </div>
+
+      <!-- Question 11: Weather Preference -->
+      <div class="q-card" data-question="weather">
+        <p>11. Which weather do you prefer?</p>
+        <div class="q-opts">
+          <div class="q-opt">Warm &amp; humid</div>
+          <div class="q-opt">Cool &amp; airy</div>
+          <div class="q-opt">Warm &amp; dry</div>
+        </div>
+      </div>
+
+      <!-- Question 12: Activity Level -->
+      <div class="q-card" data-question="activity">
+        <p>12. Your general activity level?</p>
+        <div class="q-opts">
+          <div class="q-opt">Always moving</div>
+          <div class="q-opt">Goal-oriented</div>
+          <div class="q-opt">Lethargic / Relaxed</div>
+        </div>
+      </div>
+      <div id="analysis-errors" style="color: #ef4444; font-size: 0.85rem; margin-top: 10px; display: none; text-align: center; padding: 10px; background: rgba(239, 68, 68, 0.1); border-radius: 6px; border: 1px solid rgba(239, 68, 68, 0.2);"></div>
+      <button class="btn-analyze" disabled title="Please upload image and answer all questions">Analyze My Prakriti &rarr;</button>
+    </div>
+    <div class="demo-panel animate-ready" data-anim="slideRight">
+      <div class="demo-section-title">Analysis Results</div>
+      <div class="result-stat-row">
+        <div class="rstat rstat-purple"><div class="rstat-label">Face Shape</div><div class="rstat-val p">Oval</div></div>
+        <div class="rstat rstat-teal"><div class="rstat-label">Prakriti</div><div class="rstat-val t">Kapha</div></div>
+        <div class="rstat rstat-gold"><div class="rstat-label">Confidence</div><div class="rstat-val g">87%</div></div>
+      </div>
+      <div class="condition-card">
+        <div class="cond-head">Facial Condition Analysis</div>
+        <div class="cond-row"><span class="cond-key">Dark Circles</span><span class="cond-val" id="dark_circles_val" style="color: #ef4444; font-weight: bold;">Detecting...</span></div>
+        <div class="cond-row"><span class="cond-key">Facial Puffiness</span><span class="cond-val" id="puffiness_val" style="color: #fbbf24;">Detecting...</span></div>
+        <div class="cond-row"><span class="cond-key">Skin Health</span><span class="cond-val" id="skin_health_val" style="color: #5eead4;">Detecting...</span></div>
+        <div class="cond-row"><span class="cond-key">Skin Tone/Type</span><span class="cond-val" id="skin_type_val">Detecting...</span></div>
+        <div class="cond-row"><span class="cond-key">Dominant Dosha</span><span class="cond-val grad">Calculating...</span></div>
+      </div>
+      <div class="dosha-label">Dosha Breakdown</div>
+      <div class="dosha-bar-row">
+        <div class="dosha-name" style="color:#c4b5fd">Kapha</div>
+        <div class="bar-track"><div class="bar-fill" id="b1" style="background:linear-gradient(90deg,#7c3aed,#9d5ff5)"></div></div>
+        <div class="bar-pct" style="color:#c4b5fd">62%</div>
+      </div>
+      <div class="dosha-bar-row">
+        <div class="dosha-name" style="color:#5eead4">Pitta</div>
+        <div class="bar-track"><div class="bar-fill" id="b2" style="background:linear-gradient(90deg,#14b8a6,#2dd4bf)"></div></div>
+        <div class="bar-pct" style="color:#5eead4">25%</div>
+      </div>
+      <div class="dosha-bar-row">
+        <div class="dosha-name" style="color:#fbbf24">Vata</div>
+        <div class="bar-track"><div class="bar-fill" id="b3" style="background:linear-gradient(90deg,#f59e0b,#fbbf24)"></div></div>
+        <div class="bar-pct" style="color:#fbbf24">13%</div>
+      </div>
+      <div class="reco-card">
+        <div class="reco-title">&#127807; Ayurvedic Recommendations</div>
+        <div class="reco-item"><div class="reco-dot" style="background:#14b8a6"></div><div class="reco-text">Favour warm, light, dry foods. Avoid excessive dairy and refined sweets.</div></div>
+        <div class="reco-item"><div class="reco-dot" style="background:#9d5ff5"></div><div class="reco-text">Vigorous morning exercise; avoid sleeping past sunrise to balance Kapha.</div></div>
+        <div class="reco-item"><div class="reco-dot" style="background:#f59e0b"></div><div class="reco-text">Dry massage (Garshana) to stimulate circulation and reduce facial puffiness.</div></div>
+        <div class="reco-item"><div class="reco-dot" style="background:#f97316"></div><div class="reco-text">Herbs: Trikatu, Ginger, and Turmeric to naturally balance Kapha dosha.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TECH STACK -->
+<section class="tech" id="tech">
+  <div class="centered">
+    <div class="sec-tag animate-ready" data-anim="fadeUp">Technology Stack</div>
+    <div class="sec-title animate-ready" data-anim="fadeUp">Built With Precision</div>
+  </div>
+  <div class="tech-grid">
+    <div class="tech-card animate-ready" data-anim="scaleIn" style="animation-delay:0s"><div class="tech-icon">&#128013;</div><div class="tech-name">Python</div><div class="tech-role">Core Backend</div></div>
+    <div class="tech-card animate-ready" data-anim="scaleIn" style="animation-delay:0.05s"><div class="tech-icon">&#128065;</div><div class="tech-name">OpenCV</div><div class="tech-role">Face Detection</div></div>
+    <div class="tech-card animate-ready" data-anim="scaleIn" style="animation-delay:0.1s"><div class="tech-icon">&#129302;</div><div class="tech-name">Scikit-learn</div><div class="tech-role">Prakriti ML Model</div></div>
+    <div class="tech-card animate-ready" data-anim="scaleIn" style="animation-delay:0.15s"><div class="tech-icon">&#128064;</div><div class="tech-name">MediaPipe</div><div class="tech-role">Face Landmarks</div></div>
+    <div class="tech-card animate-ready" data-anim="scaleIn" style="animation-delay:0.2s"><div class="tech-icon">&#9889;</div><div class="tech-name">Flask</div><div class="tech-role">API Backend</div></div>
+    <div class="tech-card animate-ready" data-anim="scaleIn" style="animation-delay:0.25s"><div class="tech-icon">&#128202;</div><div class="tech-name">Pandas / NumPy</div><div class="tech-role">Data Processing</div></div>
+    <div class="tech-card animate-ready" data-anim="scaleIn" style="animation-delay:0.3s"><div class="tech-icon">&#127760;</div><div class="tech-name">HTML / CSS / JS</div><div class="tech-role">Frontend Interface</div></div>
+    <div class="tech-card featured animate-ready" data-anim="scaleIn" style="animation-delay:0.35s"><div class="tech-icon">&#128279;</div><div class="tech-name">Hybrid Pipeline</div><div class="tech-role">CV + ML Fusion</div></div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="footer">
+  <div class="footer-glow"></div>
+  <div class="footer-grid">
+    <div>
+      <div class="nav-logo">
+        <div class="logo-gem">P</div>
+        <div class="logo-name">Prakriti<span>AI</span></div>
+      </div>
+      <p class="footer-desc">An AI-powered Ayurvedic wellness platform combining computer vision with traditional Ayurvedic knowledge for personalized health insights. Built as an MCA Final Year Project.</p>
+    </div>
+    <div class="footer-col">
+      <h5>Navigation</h5>
+      <a href="#about">About the Project</a>
+      <a href="#features">Features</a>
+      <a href="#how">How It Works</a>
+      <a href="#demo">Live Demo</a>
+      <a href="#tech">Tech Stack</a>
+    </div>
+    <div class="footer-col">
+      <h5>Research</h5>
+      <a href="#">Ayurvedic Doshas</a>
+      <a href="#">Face Shape Theory</a>
+      <a href="#">ML Methodology</a>
+      <a href="#">Dataset &amp; Training</a>
+      <a href="#">Project Report</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2025 PrakritiAI &mdash; MCA Final Year Project</p>
+    <div class="footer-tag">Designed with precision for academic excellence</div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script src="js/face_input.js"></script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+{
+  "users": [
+    {
+      "_id": "810ebd15-e048-45ec-9b18-d51f2f4e99f9",
+      "name": "Admin",
+      "email": "admin@gmail.com",
+      "password": "$2b$10$5.SlxcCN41cmZEpxdyAo2.GK2jRQKoEMODSRD13L3Y.EYNRj/vY4W",
+      "role": "admin",
+      "createdAt": "2026-04-19T07:40:16.907Z"
+    },
+    {
+      "_id": "56777e24-a9d2-4c52-98aa-b4975830a7fc",
+      "name": "dhruv",
+      "email": "dhruv@gmail.com",
+      "password": "$2b$10$ChTMbUmQjHw5lj/5A1fNwuYBmbZU/hULU2UzaFjMRstrYLl8soIOO",
+      "role": "user",
+      "createdAt": "2026-04-19T13:20:30.133Z"
+    },
+    {
+      "_id": "3d79b8f1-c72d-4fbd-813e-bd6cc2dbc7f4",
+      "name": "dhiraj",
+      "email": "dhiraj@gmail.com",
+      "password": "$2b$10$VGeYBD88AUq6cd8jJNM7A.R3CR3gvwidKy7bROI3yBUBOX1Q3iMRq",
+      "role": "user",
+      "createdAt": "2026-04-22T17:14:29.756Z"
+    }
+  ],
+  "analyses": [],
+  "face_analyses": [
+    {
+      "_id": "440f74c6-db86-417b-bdc2-58fb431cad2c",
+      "acne_score": 4.7,
+      "dark_circles": 100,
+      "face_shape": "Round",
+      "glow_score": 68.81,
+      "oil_level": 51.71,
+      "puffiness": 0,
+      "redness": 1.08,
+      "skin_health_score": 58.1,
+      "skin_type": "Combination",
+      "suggestions": [
+        "Apply chilled cucumber slices for dark circles",
+        "Stay hydrated and avoid high salt intake to reduce puffiness"
+      ],
+      "symmetry_score": 94.2,
+      "prediction": "Pitta",
+      "confidence": 93,
+      "timestamp": "2026-04-26T07:12:23.158Z",
+      "disclaimer": "AI-based estimation, not medical advice"
+    }
+  ]
+}
