@@ -62,7 +62,7 @@ app.post('/api/face/analyze', upload.single('image'), async (req, res) => {
         // 1. Forward to ML Service Python Flask server running on 5000 for Visual Analysis
         let mlResponse;
         try {
-            mlResponse = await axios.post('http://127.0.0.1:5000/analyze', {
+            mlResponse = await axios.post(`${process.env.ML_SERVICE_URL || 'http://127.0.0.1:5000'}/analyze', {
                 image_base64: base64Image
             }, { timeout: 15000 });
         } catch (mlSvcErr) {
@@ -96,7 +96,7 @@ app.post('/api/face/analyze', upload.single('image'), async (req, res) => {
         // 2. Get constitutional prediction based on visual features + lifestyle answers
         let predictionData = { prediction: 'Kapha', confidence: 85 };
         try {
-            const predictResponse = await axios.post('http://127.0.0.1:5000/predict', {
+            const predictResponse = await axios.post(`${process.env.ML_SERVICE_URL || 'http://127.0.0.1:5000'}/predict', {
                 answers: answers,
                 faceShape: analysisData.face_shape
             }, { timeout: 5000 });

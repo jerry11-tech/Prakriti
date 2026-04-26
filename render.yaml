@@ -1,0 +1,25 @@
+services:
+  # The Node.js Web Server (Frontend + Backend APIs)
+  - type: web
+    name: prakriti-backend
+    env: node
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: ML_SERVICE_URL
+        fromService:
+          type: web
+          name: prakriti-ml
+          envVarKey: RENDER_EXTERNAL_URL
+      - key: PORT
+        value: 3000
+    
+  # The Python ML Service (Flask API)
+  - type: web
+    name: prakriti-ml
+    env: python
+    buildCommand: cd ml_service && pip install -r requirements.txt && python train.py
+    startCommand: cd ml_service && gunicorn app:app -b 0.0.0.0:$PORT
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.9.12
